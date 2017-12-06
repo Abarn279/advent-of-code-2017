@@ -17,17 +17,13 @@ def realloc(banks, bankInd):
         blocks -= 1
 
 states, count = [], 0
-seenTwice = []
 while True:
     if inp in states:
-        try: 
-            ind = [i[0] for i in seenTwice].index(inp)
-            print(count - seenTwice[ind][1])
-            break
-        except:
-            seenTwice.append((inp[:], count))
+        break
 
     states.append(inp[:])
     maxInd = max_bank_ind(inp)
     realloc(inp, maxInd)
     count += 1
+
+print(count - states.index(inp))
