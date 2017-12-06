@@ -17,10 +17,7 @@ def realloc(banks, bankInd):
         blocks -= 1
 
 states, count = [], 0
-while True:
-    if inp in states:
-        break
-
+while inp not in states:
     states.append(inp[:])
     maxInd = max_bank_ind(inp)
     realloc(inp, maxInd)
