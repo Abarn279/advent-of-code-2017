@@ -1,5 +1,4 @@
 from file_importer import FileImporter
-import re
 
 class Node:
     def __init__(self, name, weight):
