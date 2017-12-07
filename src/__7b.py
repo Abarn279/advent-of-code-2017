@@ -45,7 +45,7 @@ def find_unbalanced_weight_dif(node):
     if len(set(sums)) == 1:                                         # If all sums are the same, its balanced
         return None
     
-    counts = { i:sums.count(i) for i in sums }                      # Dictionary to sum and how many times it shows up
+    counts = { i:sums.count(i) for i in sums }                      # Dictionary of child summation value to how many times it shows up
     dif = max(counts, key=counts.get) - min(counts, key=counts.get) # Difference between other vals and the uneven val
     childInd = sums.index(min(counts, key=counts.get))              # Index back to the node in question
 
