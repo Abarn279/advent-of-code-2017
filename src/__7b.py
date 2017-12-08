@@ -5,7 +5,7 @@ class Node:
         self.name = str(name); self.weight = int(weight); self.children = []
 
 def get_node(nodeList, nameToAdd):
-    line = [i for i in nodeList if i.startswith(nameToAdd)][0]
+    [line] = [i for i in nodeList if i.startswith(nameToAdd)]
     childNames = []
     splitLine = line.split(" -> ")
 
