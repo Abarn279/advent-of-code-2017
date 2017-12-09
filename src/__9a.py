@@ -9,7 +9,6 @@ while i < len(inp):
     if inp[i] == '!':
         i += 2
         continue
-
     if inp[i] == '<':
         garbage = True
         i += 1; continue
@@ -18,14 +17,11 @@ while i < len(inp):
         i += 1; continue
     if garbage:
         i += 1; garbageChars += 1; continue
-
-    
     elif inp[i] == '{':
         scoreToAdd += 1
     elif inp[i] == '}':
         score += scoreToAdd
         scoreToAdd -= 1
-
     i += 1
 
 print(score)
