@@ -1,7 +1,6 @@
 from file_importer import FileImporter
 
 inp = FileImporter.get_input("/../input/9.txt")
-# inp = "{{<a!>},{<a!>},{<a!>},{<ab>}}"
 
 i = score = scoreToAdd = 0
 garbage = False
