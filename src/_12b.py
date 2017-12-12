@@ -9,8 +9,9 @@ groups = 0
 
 while len(allIds) > 0:
     q = Queue()
-    contained = set([0]) # Start with 0
-    q.put(inp[min(allIds)])
+    first = min(allIds)
+    contained = set([first])
+    q.put(inp[first])
 
     while not q.empty():
         for program in q.get():
