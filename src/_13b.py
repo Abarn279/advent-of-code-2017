@@ -14,9 +14,9 @@ class Scanner:
 def part2(inp):
     delay = 0
     while True:
-        scanners = [None for x in range(inp[-1][0] + 1)]                          # List of scanner objects
+        scanners = [None for x in range(inp[-1][0] + 1)]                  
         for i in inp:
-            scanners[i[0]] = Scanner(i[1])                                        # Create a scanner
+            scanners[i[0]] = Scanner(i[1])                                     
 
         step = 0
         found = False
