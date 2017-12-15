@@ -11,9 +11,8 @@ class Gen:
 
 inp = FileImporter.get_input("/../input/15.txt").split("\n")
 FACTOR_A, FACTOR_B, DIVISOR = 16807, 48271, 2147483647
-mask_32 = 0xffffffff
 
 gen_a = Gen(int(inp[0].split(" ")[-1]), FACTOR_A, DIVISOR)
 gen_b = Gen(int(inp[1].split(" ")[-1]), FACTOR_B, DIVISOR)
 
-print(sum(gen_a.next() << 16 & mask_32 == gen_b.next() << 16 & mask_32 for i in range(40000000)))
+print(sum(gen_a.next() & 0xffff == gen_b.next() & 0xffff for i in range(40000000)))
