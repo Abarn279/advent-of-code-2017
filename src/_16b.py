@@ -18,7 +18,8 @@ progs = [chr(i) for i in range(97, 113)]
 
 inp = FileImporter.get_input("/../input/16.txt").split(",")
 
-for j in range(40):
+# Dance repeats every 60 times, 1bil % 60 == 40... thus 1bil is 40 steps beyond the first state
+for j in range(40): 
     for i in inp:
         x = i.split("/")
         if len(x) == 1:
