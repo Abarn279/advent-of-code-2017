@@ -45,7 +45,8 @@ class Prog:
 
                 if self.waiting and self.partner.waiting:
                     self.terminated = self.partner.terminated = True
-                    return
+                
+                return
 
             else:
                 self.waiting = False
