@@ -6,9 +6,10 @@ import re
 inp = [i.split() for i in FileImporter.get_input("/../input/18.txt").split('\n')]
 
 class Prog:
-    def __init__(self, inp):
+    def __init__(self, inp, inpId):
         self.q = Queue()
         self.registers = defaultdict(lambda: 0)
+        self.registers['p'] = inpId
         self.instIndex = 0
         self.inp = inp
         self.waiting = False
@@ -60,15 +61,15 @@ class Prog:
         self.instIndex += 1
 
 
-prog1 = Prog(inp)
-prog2 = Prog(inp)
-prog1.set_partner(prog2)
-prog2.set_partner(prog1)
+prog0 = Prog(inp, 0)
+prog1 = Prog(inp, 1)
+prog0.set_partner(prog1)
+prog1.set_partner(prog0)
 
-while not (prog1.terminated and prog2.terminated):
+while not (prog0.terminated and prog1.terminated):
+    if not prog0.terminated:
+        prog0.execute()
     if not prog1.terminated:
         prog1.execute()
-    if not prog2.terminated:
-        prog2.execute()
 
-print(prog2.sentValues)
+print(prog1.sentValues)
