@@ -14,9 +14,7 @@ def get_colliding_dic(lparticles):
 class Particle:
     def __init__(self, ipos, ivel, iacc, id):
         self.pos = ipos; self.vel = ivel; self.acc = iacc;self.id = id
-        self.colliding = True
     def update(self):
-        self.colliding = False
         for i in range(3):
             self.vel[i] += self.acc[i]
             self.pos[i] += self.vel[i]
