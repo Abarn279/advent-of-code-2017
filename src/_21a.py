@@ -20,10 +20,10 @@ class Subgrid:
         for rule in rules:
             for i in range(4):
                 state = numpy.rot90(self.grid, i)
-                for state in [state, numpy.flipud(state), numpy.fliplr(state)]:
-                    if check_rule(state, rule[0]): # Rotate all, get new grid from rule
+                for st in [state, numpy.flipud(state), numpy.fliplr(state)]:
+                    if check_rule(st, rule[0]): # Rotate all, get new grid from rule
                         self.grid = get_grid_from_str(rule[1])
-                        break
+                        return
     def get_active_count(self):
         return sum(1 if self.grid[i][j] == "#" else 0 for i in range(len(self.grid)) for j in range(len(self.grid)))
     def get_split_instances(self):
@@ -53,19 +53,11 @@ grids = [grid]
 
 for i in range(5):
     new_list = []
-    # split grids
     for grid in grids:
         new_list = new_list + grid.get_split_instances()
-    grids = new_list
-
+    grids = new_list[:]
+    
     for grid in grids:
         grid.update(inp)
 
 print(sum(grid.get_active_count() for grid in grids))
-    
-    
-
-
-
-
-    
