@@ -1,3 +1,6 @@
 .vscode/.ropeproject
 .vscode/.ropeproject
 src/__pycache__
+**/bin
+**/obj
+**/.vscode
